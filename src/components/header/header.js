@@ -13,9 +13,13 @@ import Logo from '../../media/logo.png';
 import {
   HeaderWrapper,
 } from './styled.js';
+import {setUser} from "../../redux-store/action";
+import {useDispatch} from "react-redux";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.onscroll = () => {
@@ -23,6 +27,14 @@ const Header = () => {
       return () => (window.onscroll = null);
     };
   }, []);
+
+  const LogOut = (event) => {
+    event.preventDefault();
+    if (localStorage.getItem("token")) {
+      localStorage.clear();
+      dispatch(setUser({}));
+    }
+  };
 
   return (
     <HeaderWrapper className={ isScrolled && "scrolled" }>
@@ -62,7 +74,7 @@ const Header = () => {
               icon={ Search }
             />
 
-            <div className='user_info'>
+            <button className='user_info' onClick={(event) => LogOut(event)}>
               <FontAwesomeIcon
                 className='icon photo'
                 icon={ User }
@@ -72,7 +84,7 @@ const Header = () => {
                 className='icon arrow'
                 icon={ ArrowDown }
               />
-            </div>
+            </button>
           </div>
       </div>
     </HeaderWrapper>

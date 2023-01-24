@@ -1,28 +1,58 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import MainInput from "../../components/input/input";
 
+import { setUser } from "../../redux-store/action";
+
 import { LoginWrapper, LoginForm } from './styled.js';
+import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
 
 const Login = () => {
   const [disable, setDisabled] = useState(true );
   const [validation, setValidation] = useState(false )
+  const [currentUser, setCurrentUser] = useState({});
+
+  const dispatch = useDispatch();
 
   const updateData = ( value ) => {
     setDisabled( value );
   }
 
+  const onLogin = async ( e ) => {
+    e.preventDefault();
+
+    const username = e.target.username.value;
+    const password =  e.target.password.value;
+
+    try {
+      const res = await axios.post(`auth/login`, { username, password } );
+      if ( res.data ) {
+        dispatch( setUser( res.data.details) );
+        setCurrentUser(res.data.details)
+        //window.localStorage.setItem('token', JSON.stringify(currentUser.token) );
+      }
+    } catch (error) {
+      console.log(error, 'wrong credentials!')
+      setValidation( true )
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("token", JSON.stringify({token: currentUser.token}));
+  }, [currentUser.token]);
+
   return (
     <LoginWrapper>
-      <LoginForm>
+      <LoginForm onSubmit={(e) => onLogin(e)}>
         <h1>Sign In</h1>
 
         <MainInput
           required={ true }
-          type='email'
-          label='Email'
-          name='email'
+          type='text'
+          label='username'
+          name='username'
           validation={ validation }
           updateData={ updateData }
         />
