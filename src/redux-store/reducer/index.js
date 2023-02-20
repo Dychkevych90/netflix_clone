@@ -1,6 +1,6 @@
 const initialState = {
   user: {},
-  isFetching: false,
+  list: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +10,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: action.user,
       };
+
+    case "MY_LIST":
+      return {
+        ...state,
+        list: action.list
+      }
 
     default:
       return state;

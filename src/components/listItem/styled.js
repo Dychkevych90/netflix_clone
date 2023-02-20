@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ListWrapper = styled.div`
   width: 225px;
-  height: 120px;
+  height: 300px;
   background-color: #141414;
   margin-right: 5px;
   overflow: hidden;

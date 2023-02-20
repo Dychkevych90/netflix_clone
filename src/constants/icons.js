@@ -5,7 +5,7 @@ import {
   faUser as User,
   faEnvelope as Social,
   faPlay as Play,
-  faInfo as Info,
+  faCircleInfo as Info,
   faXmark as Close,
   faVolumeXmark as Muted,
   faVolumeHigh as Volume,
@@ -13,7 +13,8 @@ import {
   faCheck as Check,
   faThumbsUp as Like,
   faChevronLeft as LeftArrow,
-  faChevronRight as RightArrow
+  faChevronRight as RightArrow,
+  faMinus as Minus,
 } from '@fortawesome/free-solid-svg-icons';
 
 import Facebook from '../media/facebook.svg';
@@ -41,4 +42,5 @@ export {
   Like,
   LeftArrow,
   RightArrow,
+  Minus
 }

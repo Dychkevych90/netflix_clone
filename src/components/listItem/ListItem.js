@@ -2,18 +2,19 @@ import React, {useEffect, useState} from 'react';
 
 import Hover from "../modals/hover/hover";
 
-import { ListWrapper } from './styled.js';
+import {ListWrapper} from './styled.js';
+import {useSelector} from "react-redux";
 
-const ListItem = ({ index, item, setShowModal, setMovie }) => {
+const ListItem = ({index, item, setShowModal, setMovie}) => {
   const [moviePoster, setMoviePoster] = useState('');
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if( item ) {
-      const url = `${process.env.REACT_APP_BASE_URL}${item?.backdrop_path || item?.poster_path}`
-      setMoviePoster( url );
+    if (item) {
+      const url = `${process.env.REACT_APP_BASE_URL}${item?.poster_path || item?.backdrop_path}`
+      setMoviePoster(url);
     }
-  }, [ item ])
+  }, [item])
 
   return (
     <>
@@ -21,16 +22,16 @@ const ListItem = ({ index, item, setShowModal, setMovie }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={ moviePoster } alt="poster"/>
+        <img src={moviePoster} alt="poster"/>
 
         {
           isHovered && (
-            <Hover movie={ item } setShowModal={ setShowModal } setMovie={ setMovie } />
+            <Hover movie={item} setShowModal={setShowModal} setMovie={setMovie}/>
           )
         }
       </ListWrapper>
     </>
-    )
-  }
+  )
+}
 
-      export default ListItem;
+export default ListItem;

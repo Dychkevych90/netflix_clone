@@ -14,10 +14,14 @@ import {
   HeaderWrapper,
 } from './styled.js';
 import {setUser} from "../../redux-store/action";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import UserInfo from "../modals/userInfo/userInfo";
 
 const Header = () => {
+  const currentUser = useSelector( ( state ) => state.user);
+
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isShowUserInfoModal, setIsShowUser] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -74,7 +78,7 @@ const Header = () => {
               icon={ Search }
             />
 
-            <button className='user_info' onClick={(event) => LogOut(event)}>
+            <button className='user_info' onClick={() => setIsShowUser(!isShowUserInfoModal)}>
               <FontAwesomeIcon
                 className='icon photo'
                 icon={ User }
@@ -84,6 +88,11 @@ const Header = () => {
                 className='icon arrow'
                 icon={ ArrowDown }
               />
+              {
+                isShowUserInfoModal && (
+                  <UserInfo />
+                )
+              }
             </button>
           </div>
       </div>

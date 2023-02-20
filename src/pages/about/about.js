@@ -40,7 +40,7 @@ const About = () => {
         .then((response) => {
           const data = response.data;
           if (!response) {
-            return
+            return;
           } else {
             if (data?.genres) {
               setGenres(data.genres)

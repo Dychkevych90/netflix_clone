@@ -26,7 +26,7 @@ const MainInput = (
 
   const onChange = (e) => {
     setActive(e.target.value);
-    updateData( { [ e.target.name ] : e.target.value } );
+    updateData( e );
   }
 
   return (

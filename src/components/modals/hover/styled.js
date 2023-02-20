@@ -13,6 +13,8 @@ const HoverWrapper = styled.div`
   padding: 10px;
   animation: .5s showText;
   animation-iteration-count: 1;
+  display: flex;
+  align-items: flex-end;
 
   @keyframes showText {
     from {
@@ -26,6 +28,10 @@ const HoverWrapper = styled.div`
   .buttons {
     display: flex;
     margin-bottom: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     .controller {
       border: 2px solid #fff;
@@ -36,27 +42,36 @@ const HoverWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 25px;
-      height: 25px;
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
       background-color: transparent;
       cursor: pointer;
 
       svg {
-        font-size: 10px;
+        font-size: 14px;
       }
     }
   }
   
   .title {
     font-weight: bold;
+    margin-top: 10px;
   }
 
-  .desc {
-    font-size: 12px;
+  .date {
+    font-size: 14px;
     color: lightgray;
     text-overflow: ellipsis;
     white-space: pre-wrap;
     overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
   }
 `
 

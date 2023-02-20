@@ -31,17 +31,12 @@ const Login = () => {
       if ( res.data ) {
         dispatch( setUser( res.data.details) );
         setCurrentUser(res.data.details)
-        //window.localStorage.setItem('token', JSON.stringify(currentUser.token) );
       }
     } catch (error) {
       console.log(error, 'wrong credentials!')
       setValidation( true )
     }
   };
-
-  useEffect(() => {
-    localStorage.setItem("token", JSON.stringify({token: currentUser.token}));
-  }, [currentUser.token]);
 
   return (
     <LoginWrapper>
@@ -55,6 +50,7 @@ const Login = () => {
           name='username'
           validation={ validation }
           updateData={ updateData }
+          errorText='Wrong credentials!!!'
         />
 
         <MainInput
@@ -64,6 +60,7 @@ const Login = () => {
           name='password'
           validation={ validation }
           updateData={ updateData }
+          errorText='Wrong credentials!!!'
         />
 
         <button
@@ -73,7 +70,7 @@ const Login = () => {
           Sign In
         </button>
 
-        <p className='registration'>New to Netflix? <Link to='/login'><b>Sign up now.</b></Link></p>
+        <p className='registration'>New to Netflix? <Link to='/registration'><b>Sign up now.</b></Link></p>
 
         <small className='info_text'>
           This page is protected by Google reCAPTCHA to ensure you're not a

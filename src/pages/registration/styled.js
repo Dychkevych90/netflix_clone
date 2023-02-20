@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import Bg from '../../media/background.jpg';
 
-const LoginWrapper = styled.div`
+const RegistrationWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   background: url('${ Bg }') center no-repeat;
@@ -11,7 +11,7 @@ const LoginWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   &:after{
     content: '';
     width: 100%;
@@ -21,9 +21,9 @@ const LoginWrapper = styled.div`
     top: 0;
     background-color: rgba(0,0,0,.5);
   }
-`;
+`
 
-const LoginForm = styled.form`
+const RegistrationForm = styled.form`
   background: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   max-width: 450px;
@@ -84,6 +84,6 @@ const LoginForm = styled.form`
 `;
 
 export {
-  LoginWrapper,
-  LoginForm
+  RegistrationWrapper,
+  RegistrationForm
 }

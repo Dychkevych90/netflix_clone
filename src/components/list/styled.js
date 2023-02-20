@@ -9,6 +9,7 @@ const ListWrapper = styled.div`
     font-size: 20px;
     font-weight: 500;
     margin-left: 50px;
+    text-transform: uppercase;
   }
 
   .wrapper {

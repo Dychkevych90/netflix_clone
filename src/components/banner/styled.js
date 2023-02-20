@@ -29,6 +29,27 @@ const MovieInfo = styled.div`
     font-size: 16px;
     font-weight: 600;
     line-height: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .rate {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+    .pills_list {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      .pill{
+        padding: 10px 15px;
+        background-color: #fff;
+        color: #000;
+        border-radius: 16px;
+        font-weight: 600;
+        margin-left: 10px;
+      }
+    }
   }
 
   .buttons {

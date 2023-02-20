@@ -6,7 +6,7 @@ const HeaderWrapper = styled.header`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 50;
+  z-index: 101;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +42,7 @@ const HeaderWrapper = styled.header`
         font-weight: 500;
         text-decoration: none;
         margin-right: 20px;
+        text-transform: uppercase;
         
         &.active {
           font-weight: 900;
@@ -66,6 +67,7 @@ const HeaderWrapper = styled.header`
       justify-content: center;
       background-color: transparent;
       border: none;
+      position: relative;
       
       .icon {
         margin-right: 0;

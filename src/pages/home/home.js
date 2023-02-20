@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 import Banner from "../../components/banner/banner";
 import List from "../../components/list/list";
@@ -14,6 +15,8 @@ const Home = () => {
   const [horrorMovies, setHorrorMovie] = useState([]);
   const [romanceMovies, setRomanceMovie] = useState([]);
   const [documentaries, setDocumentaries] = useState([]);
+
+  const list = useSelector((state) => state.list);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -54,6 +57,11 @@ const Home = () => {
       <Banner/>
       <List title={'Top Rated'} list={ratedMovies}/>
       <List title={'Trending Now'} list={trendingNow}/>
+      {
+        list && list.length !== 0 && (
+          <List title={'My List'} list={list}/>
+        )
+      }
       <List title={'Action Thrillers'} list={actionMovies}/>
       <List title="Comedies" list={comedyMovies}/>
       <List title="Scary Movies" list={horrorMovies}/>
