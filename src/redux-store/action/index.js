@@ -7,16 +7,26 @@ const setUser = (user) => {
   };
 }
 
-const setMyList = (item) => {
+const setMyList = (list) => {
   return (dispatch) => {
     dispatch({
       type: "MY_LIST",
-      list: item
+      list: list
+    })
+  }
+}
+
+const setSearch = (search) => {
+  return (dispatch) => {
+    dispatch({
+      type: "SEARCH",
+      search: search
     })
   }
 }
 
 export {
   setUser,
-  setMyList
+  setMyList,
+  setSearch
 }

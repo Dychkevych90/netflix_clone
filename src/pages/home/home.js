@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import Banner from "../../components/banner/banner";
 import List from "../../components/list/list";
 
 import requests from "../../utils/requests";
+import {setMyList, setSearch} from "../../redux-store/action";
 
 const Home = () => {
   const [ratedMovies, setRatedMovies] = useState([]);
@@ -16,7 +17,17 @@ const Home = () => {
   const [romanceMovies, setRomanceMovie] = useState([]);
   const [documentaries, setDocumentaries] = useState([]);
 
-  const list = useSelector((state) => state.list);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const arr = [];
+    const movies = arr.concat(ratedMovies, trendingNow, actionMovies, comedyMovies, horrorMovies, romanceMovies, documentaries);
+    dispatch(setSearch(movies))
+  }, [ratedMovies, trendingNow, actionMovies, comedyMovies, horrorMovies, romanceMovies, documentaries]);
+
+
+  const myList = useSelector((state) => state.list);
+  const currentUser = useSelector((state) => state.user)
 
   useEffect(() => {
     const getMovies = async () => {
@@ -47,6 +58,13 @@ const Home = () => {
       await axios.get(requests.fetchDocumentaries)
         .then((res) => setDocumentaries(res.data.results))
         .catch((err) => console.error(err));
+
+      const userId = currentUser._id;
+      if(userId){
+        await axios.get(`myList/users/${userId}/favorite-movies`)
+          .then((res) => dispatch(setMyList(res.data)))
+          .catch((err) => console.error(err));
+      }
     }
 
     getMovies();
@@ -58,8 +76,8 @@ const Home = () => {
       <List title={'Top Rated'} list={ratedMovies}/>
       <List title={'Trending Now'} list={trendingNow}/>
       {
-        list && list.length !== 0 && (
-          <List title={'My List'} list={list}/>
+        myList && myList.length !== 0 && (
+          <List title={'My List'} list={myList}/>
         )
       }
       <List title={'Action Thrillers'} list={actionMovies}/>

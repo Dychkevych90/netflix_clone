@@ -1,14 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
 
 import ListItem from "../listItem/ListItem";
 import TrailerModal from "../modals/trailer/trailerModal";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { LeftArrow, RightArrow } from '../../constants/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {LeftArrow, RightArrow} from '../../constants/icons';
 
-import { ListWrapper } from './styled.js'
+import {ListWrapper} from './styled.js'
 
-export default function List({ list, title }) {
+export default function List({list, title}) {
   const [isMoved, setIsMoved] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
   const [clickLimit] = useState(window.innerWidth / 230);
@@ -34,29 +34,35 @@ export default function List({ list, title }) {
   return (
     <>
       <ListWrapper className='list'>
-        <span className="listTitle">{ title }</span>
+        <span className="listTitle">{title}</span>
 
         <div className="wrapper">
           <FontAwesomeIcon
-            icon={ LeftArrow }
+            icon={LeftArrow}
             className="sliderArrow left"
             onClick={() => handleClick("left")}
-            style={{ display: !isMoved && "none" }}
+            style={{display: !isMoved && "none"}}
           />
 
-          <div className="slider_container" ref={ listRef }>
-            { list.map(( item, i ) => (
-              <ListItem
-                index={ i }
-                item={ item }
-                key={ item.id }
-                setShowModal={ setShowModal }
-                setMovie={ setMovie } />
-            ))}
+          <div className="slider_container" ref={listRef}>
+            {list.map((item, i) => {
+                return (
+                  (
+                    <ListItem
+                      index={i}
+                      item={item}
+                      key={item.id}
+                      setShowModal={setShowModal}
+                      setMovie={setMovie}
+                    />
+                  )
+                )
+              }
+            )}
           </div>
 
           <FontAwesomeIcon
-            icon={ RightArrow }
+            icon={RightArrow}
             className="sliderArrow right"
             onClick={() => handleClick("right")}
           />

@@ -12,9 +12,9 @@ import {MyListWrapper} from './styled.js';
 const MyList = () => {
   const List = useSelector((state) => state.list);
   const currentUser = useSelector((state) => state.user);
-
   const [showModal, setShowModal] = useState(false)
   const [movie, setMovie] = useState({});
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -23,7 +23,8 @@ const MyList = () => {
       const userId = currentUser._id;
       try {
         const response = await axios.get(`myList/users/${userId}/favorite-movies`);
-
+        setFavoriteMovies(response.data)
+        console.log('response.data', response.data)
         dispatch(setMyList(response.data))
       } catch (error) {
         console.error(error);

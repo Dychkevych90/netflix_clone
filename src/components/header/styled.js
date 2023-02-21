@@ -43,10 +43,13 @@ const HeaderWrapper = styled.header`
         text-decoration: none;
         margin-right: 20px;
         text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 2px;
         
         &.active {
           font-weight: 900;
           color: #fff;
+          background-color: rgb(255,0,0);
         }
         
         &:last-child {

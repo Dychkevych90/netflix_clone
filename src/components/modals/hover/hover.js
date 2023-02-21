@@ -14,9 +14,10 @@ import {HoverWrapper} from './styled.js';
 const Hover = ({movie, setShowModal, setMovie}) => {
   const currentUser = useSelector((state) => state.user);
   const list = useSelector((state) => state.list);
-  console.log('list', list, 'movie', movie)
 
   const [releaseDate, setReleaseDate] = useState(null);
+  const [isMovieInFavorite, setIsMovieInFavorite] = useState(false)
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   useEffect(() => {
     setReleaseDate(movie.release_date && movie.release_date.split("-")[0]);
@@ -31,6 +32,7 @@ const Hover = ({movie, setShowModal, setMovie}) => {
       const response = await axios.post(`myList/users/${userId}/favorite-movies`, item);
 
       dispatch(setMyList([...list, response.data]))
+      setFavoriteMovies([...list, response.data])
     } catch (error) {
       console.error(error);
     }
@@ -41,17 +43,20 @@ const Hover = ({movie, setShowModal, setMovie}) => {
 
     try {
       const response = await axios.delete(`myList/users/${userId}/favorite-movies/${favoriteMovieId}`);
-      console.log('delete', response.data)
+
       const index = list.findIndex((movie) => movie.id === response.data.id);
       const newData = [...list.slice(0, index), ...list.slice(index + 1)];
 
       dispatch(setMyList(newData))
+      setFavoriteMovies(newData)
     } catch (error) {
       console.error(error);
     }
   }
 
-  const isMovieInFavorite = list.find((item) => item.id === movie.id);
+  useEffect(() => {
+      setIsMovieInFavorite(list.find((item) => item.id === movie.id));
+  }, [movie])
 
   return (
     <>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const ListWrapper = styled.div`
   width: 100%;
   margin-top: 40px;
+  overflow-x: hidden;
 
   .listTitle {
     color: white;

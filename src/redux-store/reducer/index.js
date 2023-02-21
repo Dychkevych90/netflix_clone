@@ -1,6 +1,7 @@
 const initialState = {
   user: {},
   list: [],
+  search: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +16,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         list: action.list
+      }
+
+    case "SEARCH":
+      return {
+        ...state,
+        search: action.search
       }
 
     default:

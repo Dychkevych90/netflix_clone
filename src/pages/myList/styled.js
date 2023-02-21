@@ -5,12 +5,13 @@ const MyListWrapper = styled.div`
   padding: 40px 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  //justify-content: flex-start;
   width: 100%;
   flex-wrap: wrap;
   
   .movie {
-    flex: 24%;
+    width: 100%;
+    height: auto;
     max-width: calc(100% / 4 - 15px);
     margin-bottom: 15px;
     cursor: pointer;

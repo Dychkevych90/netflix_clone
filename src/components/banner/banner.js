@@ -44,7 +44,7 @@ const Banner = () => {
       await axios.get(`https://api.themoviedb.org/3/${movie?.media_type === 'tv' ? 'tv' : 'movie'}/${movie?.id}?api_key=${process.env.REACT_APP_THEMOVIEDB_PUBLIC_API_KEY}&language=en-US&append_to_response=videos`)
         .then((response) => {
           const data = response.data;
-          console.log('data', data)
+
           if (!response) {
             return;
           } else {

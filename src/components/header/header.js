@@ -32,14 +32,6 @@ const Header = () => {
     };
   }, []);
 
-  const LogOut = (event) => {
-    event.preventDefault();
-    if (localStorage.getItem("token")) {
-      localStorage.clear();
-      dispatch(setUser({}));
-    }
-  };
-
   return (
     <HeaderWrapper className={ isScrolled && "scrolled" }>
       <div className='container'>
@@ -61,7 +53,7 @@ const Header = () => {
 
               <NavLink to='/movies'>Movies</NavLink>
 
-              <NavLink to='/popular'>Popular</NavLink>
+              <NavLink to='/search'>Search</NavLink>
 
               <NavLink to='/myList'>My List</NavLink>
             </nav>

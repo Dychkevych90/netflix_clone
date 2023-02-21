@@ -11,7 +11,8 @@ import Footer from "../footer/footer";
 import ScrollToTop from "../scrollToTop/scrollToTop";
 import MyList from "../../pages/myList/myList";
 import Registration from "../../pages/registration/registration";
-
+import SearchPage from "../../pages/search/search";
+import InDevelopment from "../../pages/inDevelopment/inDevelopment";
 
 const App = () => {
   const currentUser = useSelector( ( state ) => state.user);
@@ -34,12 +35,19 @@ const App = () => {
        <Route exact path='/movie' element={ Object.keys(currentUser).length === 0 ? <Navigate replace to={'/login'} /> : <About/> }  />
        <Route exact path='/myList' element={ Object.keys(currentUser).length === 0 ? <Navigate replace to={'/login'} /> : <MyList/> }  />
        <Route exact path='/registration' element={ Object.keys(currentUser).length === 0 ? <Registration/> : <Navigate replace to={'/'} /> }  />
+       <Route exact path='/search' element={<SearchPage/>} />
+       <Route exact path='/series' element={<InDevelopment/>} />
+       <Route exact path='/movies' element={<InDevelopment/>} />
      </Routes>
 
      {
-       location.pathname !== '/login' && location.pathname !== '/registration' && (
-         <Footer/>
-       )
+       location.pathname !== '/login'
+         && location.pathname !== '/registration'
+         && location.pathname !== '/series'
+         && location.pathname !== '/movies'
+         && (
+           <Footer/>
+         )
      }
 
      <ScrollToTop/>
