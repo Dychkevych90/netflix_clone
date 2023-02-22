@@ -27,7 +27,7 @@ const Login = () => {
     const password =  e.target.password.value;
 
     try {
-      const res = await axios.post(`auth/login`, { username, password } );
+      const res = await axios.post(`${process.env.REACT_APP_BFF_API}auth/login`, { username, password } );
       if ( res.data ) {
         dispatch( setUser( res.data.details) );
         setCurrentUser(res.data.details)
