@@ -10,7 +10,7 @@ const TrailerOverlay = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 50;
+  z-index: 500;
   
   .wrapper {
     max-width: 700px;
@@ -31,6 +31,10 @@ const TrailerOverlay = styled.div`
       height: 100%;
       background-color: transparent;
       z-index: 20;
+    }
+    
+    @media(max-width: 760px){
+      max-width: 500px;
     }
   }
   
@@ -94,9 +98,12 @@ const TrailerOverlay = styled.div`
         span {
           color: gray;
           font-weight: 500;
-          color: gray;
         }
       }
+    }
+    
+    @media(max-width: 510px){
+      flex-direction: column;
     }
   }
   

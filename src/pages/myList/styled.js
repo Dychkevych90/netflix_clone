@@ -8,25 +8,36 @@ const MyListWrapper = styled.div`
   //justify-content: flex-start;
   width: 100%;
   flex-wrap: wrap;
-  
+
   .movie {
-    width: 100%;
     height: auto;
-    max-width: calc(100% / 4 - 15px);
-    margin-bottom: 15px;
+    flex: 1 0 calc(25% - 20px);
+    max-width: calc(25% - 20px);
     cursor: pointer;
     position: relative;
-    
+    width: unset;
+    margin: 5px;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
+    @media (max-width: 768px) {
+      flex: 1 0 calc(33.33% - 20px);
+      max-width: calc(33.33% - 20px);
+    }
+
+    @media (max-width: 480px) {
+      flex: 1 0 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+    }
   }
 
-  //& .movie:nth-child(4n){
-  //  margin-right: 0;
-  //}
+  @media(max-width: 700px){
+    margin-top: 50px;
+  }
 `
 
 export {

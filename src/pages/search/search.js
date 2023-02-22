@@ -41,7 +41,8 @@ const SearchPage = () => {
 
           <div className='list'>
             {
-              result.map((item, i) => (
+              result.map((item, i) => {
+                return(
                   <>
                     <ListItem
                       index={i}
@@ -51,7 +52,8 @@ const SearchPage = () => {
                       setMovie={setMovie}
                     />
                   </>
-                )
+                  )
+                }
               )
             }
           </div>

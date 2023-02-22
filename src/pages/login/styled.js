@@ -46,7 +46,7 @@ const LoginForm = styled.form`
   
   .form_button {
     background: #E50914;
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
     border-radius: 4px;
     width: 100%;
     cursor: pointer;
@@ -75,6 +75,7 @@ const LoginForm = styled.form`
     line-height: 20px;
     letter-spacing: -0.01em;
     color: #737373;
+    margin-bottom: 10px;
     
     a {
       text-decoration: none;

@@ -37,6 +37,7 @@ const ListWrapper = styled.div`
         right: 0;
       }
     }
+    
     .slider_container {
       margin-left: 50px;
       display: flex;
@@ -44,6 +45,10 @@ const ListWrapper = styled.div`
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;
+
+      @media (max-width: 860px) {
+        margin-left: 30px;
+      }
     }
   }
 `;

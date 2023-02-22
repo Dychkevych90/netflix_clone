@@ -21,7 +21,20 @@ const SearchPageWrapper = styled.div`
     flex-wrap: wrap;
     
     .movie {
-      max-width: calc(100% / 4 - 10px);
+      flex: 1 0 calc(25% - 20px);
+      width: unset;
+      margin: 5px;
+      max-width: calc(25% - 20px);
+
+      @media (max-width: 768px) {
+        flex: 1 0 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+      }
+
+      @media (max-width: 480px) {
+        flex: 1 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+      }
     }
   }
 `

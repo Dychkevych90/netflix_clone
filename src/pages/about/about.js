@@ -61,7 +61,6 @@ const About = () => {
             return a.popularity - b.popularity
           }).reverse();
           const items = popular.slice(0, 5).map(item => item);
-          console.log(items)
           setActors(items);
         })
         .catch((err) => console.error(err));
@@ -83,7 +82,7 @@ const About = () => {
         <SingleMoviePage>
           <MainScreen img={movieBackground}>
             <div className="container">
-              <img src={moviePoster} className="poster"/>
+              <img src={moviePoster} className="poster" alt='image'/>
               <div className="info">
                 <div className="title">{movie?.title || movie?.name || movie?.original_name}</div>
 

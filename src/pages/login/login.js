@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import MainInput from "../../components/input/input";
@@ -7,7 +7,7 @@ import { setUser } from "../../redux-store/action";
 
 import { LoginWrapper, LoginForm } from './styled.js';
 import axios from "axios";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 const Login = () => {
   const [disable, setDisabled] = useState(true );
@@ -71,6 +71,8 @@ const Login = () => {
         </button>
 
         <p className='registration'>New to Netflix? <Link to='/registration'><b>Sign up now.</b></Link></p>
+
+        <Link type='button' to='/'>Come back to main page</Link>
 
         <small className='info_text'>
           This page is protected by Google reCAPTCHA to ensure you're not a

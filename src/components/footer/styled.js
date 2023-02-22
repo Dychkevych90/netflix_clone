@@ -40,6 +40,10 @@ const FooterWrapper = styled.footer`
   
   .bottom_row {
     padding-top: 30px;
+
+    @media (max-width: 700px) {
+     display: none;
+    }
   }
 `;
 

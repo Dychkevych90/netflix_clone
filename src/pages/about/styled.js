@@ -3,6 +3,10 @@ import styled from 'styled-components';
 const SingleMoviePage = styled.div`
   width: 100%;
   margin-top: 82px;
+
+  @media (max-width: 800px) {
+    margin-top: 50px;
+  }
 `;
 
 const MainScreen = styled.div`
@@ -31,6 +35,10 @@ const MainScreen = styled.div`
   .container {
     display: flex;
     align-items: center;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
   }
 
   .poster {
@@ -41,6 +49,10 @@ const MainScreen = styled.div`
     object-fit: cover;
     object-position: center;
     z-index: 1;
+
+    @media (max-width: 800px) {
+     margin-bottom: 40px;
+    }
   }
 
   .info {
@@ -125,6 +137,10 @@ const MainScreen = styled.div`
         color: lightgrey;
       }
     }
+
+    @media (max-width: 800px) {
+      padding: 0;
+    }
   }
 `;
 
@@ -142,9 +158,7 @@ const SeriesCast = styled.div`
   
   .actors_section {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding-bottom: 20px;
     border-bottom: 1px solid;
     border-color: rgba(255,255,255,.3);
@@ -152,13 +166,25 @@ const SeriesCast = styled.div`
     .actor {
       display: flex;
       flex-direction: column;
-      margin-right: 15px;
-      margin-bottom: 20px;
       align-items: flex-start;
+      flex: 1 0 calc(25% - 15px);
+      width: unset;
+      margin: 5px;
+      max-width: calc(25% - 15px);
+
+      @media (max-width: 768px) {
+        flex: 1 0 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+      }
+
+      @media (max-width: 480px) {
+        flex: 1 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+      }
       
       .photo {
-        width: 200px;
-        height: 250px;
+        width: 100%;
+        height: fit-content;
         object-fit: cover;
         margin-bottom: 10px;
         border-top-right-radius: 10px;

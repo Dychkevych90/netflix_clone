@@ -75,6 +75,8 @@ const Registration = () => {
 
         <p className='registration'>Have an account? <Link to='/login'><b>Sign in.</b></Link></p>
 
+        <Link to='/'>Come back to main page</Link>
+
         <small className='info_text'>
           This page is protected by Google reCAPTCHA to ensure you're not a
           bot. <b>Learn more</b>.

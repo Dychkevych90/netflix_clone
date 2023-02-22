@@ -9,12 +9,17 @@ import {
   faXmark as Close,
   faVolumeXmark as Muted,
   faVolumeHigh as Volume,
-  faPlus as Plus,
+  faHeartCirclePlus as Plus,
   faCheck as Check,
   faThumbsUp as Like,
   faChevronLeft as LeftArrow,
   faChevronRight as RightArrow,
-  faMinus as Minus,
+  faHeartCircleMinus as Minus,
+  faBars as Hamburger,
+  faHouse as Home,
+  faVideo as Movies,
+  faTv as Series,
+  faList as List,
 } from '@fortawesome/free-solid-svg-icons';
 
 import Facebook from '../media/facebook.svg';
@@ -42,5 +47,10 @@ export {
   Like,
   LeftArrow,
   RightArrow,
-  Minus
+  Minus,
+  Hamburger,
+  Series,
+  Movies,
+  Home,
+  List
 }

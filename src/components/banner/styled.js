@@ -17,12 +17,28 @@ const MovieInfo = styled.div`
   bottom: 100px;
   left: 0;
   max-width: 700px;
+
+  @media (max-width: 790px) {
+    max-width: 500px;
+  }
+  
+  @media(max-width: 500px){
+    left: 50%;
+    top: 50%;
+    bottom: unset;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
   
   .title {
     font-size: 50px;
     line-height: 60px;
     margin-bottom: 20px;
     font-weight: bold;
+
+    @media (max-width: 500px) {
+      font-size: 40px;
+    }
   }
   
   .overview {
@@ -30,6 +46,14 @@ const MovieInfo = styled.div`
     font-weight: 600;
     line-height: 22px;
     margin-bottom: 10px;
+
+    @media (max-width: 790px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 13px;
+    }
   }
   
   .rate {
@@ -41,13 +65,19 @@ const MovieInfo = styled.div`
       display: flex;
       align-items: center;
       margin-left: 20px;
+      flex-wrap: wrap;
+      
       .pill{
         padding: 10px 15px;
         background-color: #fff;
         color: #000;
         border-radius: 16px;
         font-weight: 600;
-        margin-left: 10px;
+        margin: 0 10px 10px 0;
+
+        @media (max-width: 500px) {
+          padding: 5px 10px;
+        }
       }
     }
   }
