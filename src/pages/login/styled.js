@@ -34,6 +34,11 @@ const LoginForm = styled.form`
   justify-content: center;
   flex-direction: column;
   
+  @media (max-width: 700px){
+    padding: 20px;
+    margin: 0 10px;
+  }
+  
   h1 {
     font-style: normal;
     font-weight: 700;

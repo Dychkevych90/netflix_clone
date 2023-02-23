@@ -122,6 +122,10 @@ const HeaderWrapper = styled.header`
       border-radius: 2px;
       color: #fff;
       background-color: rgb(255, 0, 0);
+      
+      @media(max-width: 790px){
+        margin-right: 0;
+      }
     }
 
     @media (max-width: 790px) {

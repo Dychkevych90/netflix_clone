@@ -33,6 +33,11 @@ const RegistrationForm = styled.form`
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+
+  @media (max-width: 700px){
+    padding: 20px;
+    margin: 0 10px;
+  }
   
   h1 {
     font-style: normal;
