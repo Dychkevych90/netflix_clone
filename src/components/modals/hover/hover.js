@@ -29,7 +29,7 @@ const Hover = ({movie, setShowModal, setMovie}) => {
     const userId = currentUser._id;
 
     try {
-      const response = await axios.post(`myList/users/${userId}/favorite-movies`, item);
+      const response = await axios.post(`${process.env.REACT_APP_BFF_API}myList/users/${userId}/favorite-movies`, item);
 
       dispatch(setMyList([...list, response.data]))
       setFavoriteMovies([...list, response.data])
@@ -42,7 +42,7 @@ const Hover = ({movie, setShowModal, setMovie}) => {
     const userId = currentUser._id;
 
     try {
-      const response = await axios.delete(`myList/users/${userId}/favorite-movies/${favoriteMovieId}`);
+      const response = await axios.delete(`${process.env.REACT_APP_BFF_API}myList/users/${userId}/favorite-movies/${favoriteMovieId}`);
 
       const index = list.findIndex((movie) => movie.id === response.data.id);
       const newData = [...list.slice(0, index), ...list.slice(index + 1)];
