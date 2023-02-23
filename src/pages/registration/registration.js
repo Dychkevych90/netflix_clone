@@ -25,7 +25,7 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`auth/register`, { ...form } );
+      const res = await axios.post(`${process.env.REACT_APP_BFF_API}auth/register`, { ...form } );
       if(res.data) {
         dispatch( setUser(res.data.details) )
       }
