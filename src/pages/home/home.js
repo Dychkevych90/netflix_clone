@@ -61,7 +61,7 @@ const Home = () => {
 
       const userId = currentUser._id;
       if(userId){
-        await axios.get(`myList/users/${userId}/favorite-movies`)
+        await axios.get(`${process.env.REACT_APP_BFF_API}myList/users/${userId}/favorite-movies`)
           .then((res) => dispatch(setMyList(res.data)))
           .catch((err) => console.error(err));
       }
