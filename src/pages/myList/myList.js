@@ -21,7 +21,7 @@ const MyList = () => {
     const fetchFavoriteMovies = async () => {
       const userId = currentUser._id;
       try {
-        const response = await axios.get(`myList/users/${userId}/favorite-movies`);
+        const response = await axios.get(`${process.env.REACT_APP_BFF_API}myList/users/${userId}/favorite-movies`);
         dispatch(setMyList(response.data))
       } catch (error) {
       }
